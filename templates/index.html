@@ -1,1 +1,79 @@
-<h1>we are at index</h1>
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div>Kamus Melayu Dewan 4: <a href="/">Home</a>
+        <a href="/info">Maklumat</a>
+    </div>
+
+</div>
+
+
+<div class="container">
+    <h1>Kamus Melayu Dewan 4</h1>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.melayu.label }}<br>
+            {{ form.melayu(size=32) }}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+
+</div>
+
+<div class="container">
+    <p>
+    <h2>
+        Kata Melayu:
+    </h2> {{melayu}}
+    </p>
+
+</div>
+
+<div class="container">
+    {% if guest2 %}
+    <h3>Tiada entri. Kemungkinan: </h3>
+    <ol>
+        {% for g in guest2 %}
+        <li>{{g}}</li>
+        {% endfor %}
+    </ol>
+    {% endif %}
+</div>
+
+<div class="container">
+    <p>
+    <h3>Definasi: </h3>
+    <lo>
+        {% for i in d %}
+        <li>{{i}}</li>
+        {% endfor %}
+    </lo>
+
+    </p>
+</div>
+
+<div class="container">
+    {% if l %}
+    <h3>Kata Terbitan:</h3>
+
+    <ol>
+        {% for w in l %}
+        <li>{{w}}</li>
+        {% endfor %}
+    </ol>
+    {% endif %}
+</div>
+
+<div class="container">
+    {% block footer %}
+    &copy; Copyright 2020 by zamri@ukm.edu.my</a>.
+    {% endblock %}
+</div>
+
+
+{% endblock %}
+
+
+{# all output in block content #}

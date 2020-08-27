@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% extends "bootstrap/base.html" %}
+
+{% block title %}Kamus Melayu Dewan 4{% endblock %}
+
+<body>
+    <div>Kamus Melayu Dewan 4: <a href="/index">Home</a></div>
+    <hr>
+    {% block content %}{% endblock %}
+
+    <div id="footer">
+        {% block footer %}
+        &copy; Copyright 2008 by <a href="http://domain.invalid/">you</a>.
+        {% endblock %}
+    </div>
+</body>
+</html>
