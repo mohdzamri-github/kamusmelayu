@@ -86,9 +86,12 @@ def index():
 
         # search for kata terbitan
         l = []
-        for i in d: # d is a List of definations.
+        for i in d: # d is a List of definations. ['saya suka','makan nasi']
             for j in i.split():
-                x = str(j).strip(",;:)")
+                # split ['saya suka','makan nasi']
+                #  j = ['saya','suka']
+                # strip(), x = str(j) = 'saya' !! not x=['saya']
+                x = str(j).strip(",;:.)")
                 if re.search(melayu,x):
                     if x not in l:
                         l.append(str(x))
