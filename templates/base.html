@@ -8,6 +8,15 @@
 <body>
     <div>Kamus Melayu Dewan 4: <a href="/index">Home</a></div>
     <hr>
+    {% block header %}
+    <div class="container">
+        <div>Kamus Melayu Dewan 4: <a href="/">Home</a>
+            <a href="/info">Info</a>
+        </div>
+
+    </div>
+    {% endblock %}
+    
     {% block content %}{% endblock %}
 
     <div id="footer">

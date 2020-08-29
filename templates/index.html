@@ -1,16 +1,15 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container">
-    <div>Kamus Melayu Dewan 4: <a href="/">Home</a>
-        <a href="/info">Maklumat</a>
-    </div>
 
-</div>
-
+{% block header %}
+{{super()}}
+{% endblock %}
 
 <div class="container">
     <h1>Kamus Melayu Dewan 4</h1>
+    Untuk tujuan rujukan dan penyelidikan sahaja. Tiada nilai komersial.
+
     <form action="" method="post" novalidate>
         {{ form.hidden_tag() }}
         <p>
@@ -55,17 +54,25 @@
 </div>
 
 <div class="container">
-    {% if l %}
-    <h3>Kata Terbitan:</h3>
-
-    <ol>
-        {% for w in l %}
-        <li>{{w}}</li>
-        {% endfor %}
-    </ol>
-    {% endif %}
+    <div class="row">
+        <div class="col-md-12">
+            {% if l %}
+            <h3>Kata Terbitan:</h3>
+            <p size="+4" class="text-monospace">
+                <ol>
+                    {% for w in l %}
+                    <li>{{w}}</li>
+                    {% endfor %}
+                </ol>
+                {% endif %}
+            </p>
+        </div>
+    </div>
 </div>
 
+<div class="container">
+    Penghargaan: Dewan Bahasa Pustaka. Data berasaskan Kamus Melayu Dewan 4.
+</div>
 <div class="container">
     {% block footer %}
     &copy; Copyright 2020 by zamri@ukm.edu.my</a>.
