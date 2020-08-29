@@ -91,8 +91,12 @@ def index():
                 # split ['saya suka','makan nasi']
                 #  j = ['saya','suka']
                 # strip(), x = str(j) = 'saya' !! not x=['saya']
-                x = str(j).strip(",;:.)")
+                x = str(j).strip(",;:.)(")
                 if re.search(melayu,x):
+                    if x not in l:
+                        l.append(str(x))
+                # search for sakit -> penyakit
+                if re.search(melayu[1:],x):
                     if x not in l:
                         l.append(str(x))
         return render_template('index.html', form=form,

@@ -1,70 +1,108 @@
 {% extends "base.html" %}
 
 {% block content %}
-
+<!--
 {% block header %}
 {{super()}}
-{% endblock %}
+{% endblock %} -->
 
-<div class="container">
-    <h1>Kamus Melayu Dewan 4</h1>
-    Untuk tujuan rujukan dan penyelidikan sahaja. Tiada nilai komersial.
+<div class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"> <a href="/">Rumah</a> </li>
+                    <li class="breadcrumb-item active"><a href="/info">Info</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="display-4">Kamus Melayu Dewan 4</h1>
+                Untuk tujuan rujukan dan penyelidikan sahaja. Tiada nilai komersial.
+            </div>
 
-    <form action="" method="post" novalidate>
-        {{ form.hidden_tag() }}
-        <p>
-            {{ form.melayu.label }}<br>
-            {{ form.melayu(size=32) }}
-        </p>
-        <p>{{ form.submit() }}</p>
-    </form>
-
+        </div>
+        <form action="" method="post" novalidate>
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.melayu.label }}<br>
+                {{ form.melayu(size=32) }}
+            </p>
+            <p>{{ form.submit() }}</p>
+        </form>
+    </div>
 </div>
 
-<div class="container">
-    <p>
-    <h2>
-        Kata Melayu:
-    </h2> {{melayu}}
-    </p>
-
+<div class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                {% if guest2 %}
+                <h1 class="">Tiada Entri:</h1>
+                <ol>
+                    <h2>Semakan entri:</h2>
+                    {% for g in guest2 %}
+                    <li>{{g}}</li>
+                    {% endfor %}
+                </ol>
+                {% endif %}
+            </div>
+        </div>
+    </div>
 </div>
 
-<div class="container">
-    {% if guest2 %}
-    <h3>Tiada entri. Kemungkinan: </h3>
-    <ol>
-        {% for g in guest2 %}
-        <li>{{g}}</li>
-        {% endfor %}
-    </ol>
-    {% endif %}
+<div class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                {% if melayu %}
+                <h1 class="">Kata Melayu</h1>
+                <p class="text-monospace">
+                    <li>{{melayu}}</li>
+                </p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="">Definisi</h1>
+                <lo>
+                    {% for i in d %}
+                    <p class="text-monospace">
+                        <li>{{i}}</li>
+                    </p>
+                    {% endfor %}
+                </lo>
+            </div>
+        </div>
+    </div>
 </div>
 
-<div class="container">
-    <p>
-    <h3>Definasi: </h3>
-    <lo>
-        {% for i in d %}
-        <li>{{i}}</li>
-        {% endfor %}
-    </lo>
-
-    </p>
-</div>
 
 <div class="container">
     <div class="row">
         <div class="col-md-12">
             {% if l %}
-            <h3>Kata Terbitan:</h3>
+            <h3>Kata Berkaitan:</h3>
             <p size="+4" class="text-monospace">
-                <ol>
-                    {% for w in l %}
+            <ol>
+                {% for w in l %}
+                <p class="text-monospace">
                     <li>{{w}}</li>
-                    {% endfor %}
-                </ol>
-                {% endif %}
+                    </li>
+                </p>
+                {% endfor %}
+            </ol>
+            {% endif %}
             </p>
         </div>
     </div>
